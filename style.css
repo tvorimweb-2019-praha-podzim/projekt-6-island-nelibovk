@@ -1,12 +1,14 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
-*, :after, :before { box-sizing: border-box; }
+
+*, :after, :before {
+    box-sizing: border-box;
+}
 
 /*
  BARVY
  pozadi     #f5f5f5
  Jedeme retro cernobile, dnes barvy nepotrebujeme.
 */
-
 
 body {
     margin: 0;
@@ -17,27 +19,248 @@ body {
     line-height: 1.6;
 }
 
-
-/* HLAVICKA */
-
-.titulek {
-    font-family: 'Raleway', serif;
+@media (min-width: 0px) {
+    /* HLAVICKA */
+    .hlavicka {
+        background-image: url(images/island-hlavicka.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .hlavicka h1{
+        font-size: 3rem;
+        padding-top: 2rem;
+    }
+    .titulek, .perex {
+        color: white;
+        text-align: center;
+        text-shadow: 1px 1px 2px black;
+    }
+    .perex {
+        font-size: 12px;
+    }
+    .titulek {
+        font-family: 'Raleway', serif;
+        padding: 1rem 0 2rem 0;
+        margin: 0;
+    }
+    .autor {
+        color: rgb(221, 221, 221);
+        text-align: center;
+        font-size: 12px;
+        font-style: italic;
+        padding-bottom: 20px;
+        text-shadow: 1px 1px 2px black;
+    }
+    .autor::before {
+        content: "";
+        display: block;
+        width: 4rem;
+        height: 1rem;
+        border-top: solid 1.5px rgb(221, 221, 221);
+        margin: auto;
+    }
+    /* MENU */
+    .menu {
+        list-style: none;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0;
+        margin: 1rem;
+        margin-bottom: 2rem;
+    }
+    .menu a {
+        text-decoration: none;
+        font-family: sans-serif;
+        color: rgb(182, 182, 182);
+        font-size: 11px;
+        padding: 10px;
+    }
+    .menu li {
+        border-bottom: solid 0.5px rgb(230, 230, 230);
+    }
+    /* OBSAH */
+    p {
+        font-size: 12px;
+        margin: 0.5rem 1rem;
+    }
+    h2 {
+        font-family: sans-serif;
+    }
+    h2::after {
+        content: "";
+        display: block;
+        width: 4rem;
+        height: 1rem;
+        border-bottom: solid rgb(127, 194, 216) 5px;
+        text-align: left;
+    }
+    h2::before {
+        content: "";
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+    }
+    img {
+        max-width: 100%;
+    }
+    .popisek {
+        display: block;
+        text-align: center;
+        margin: 0;
+        font-size: 10px;
+        font-family: sans-serif;
+        color: grey;
+        margin-bottom: 2rem;
+    }
+    .popisek a {
+        color: grey;
+    }
+    /* FOTOGALERIE */
+   .nazev{
+       font-weight: 900;
+       color: grey;
+   }
+    .foto img {
+        width: 100%;
+    }
+    .foto .popisek{
+        font-weight: 900;
+    }
+    .foto span {
+        font-weight: normal;
+    }
+    /* PATICKA */
+    .paticka {
+        background-image: linear-gradient(rgb(219, 219, 219), white);
+        color: grey;
+        padding-top: 10px;
+    }
+    .paticka a {
+        color: grey;
+        font-size: 8px;
+    }
+    .paticka p {
+        font-size: 8px;
+    }
 }
 
+@media (min-width: 500px) {
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .obsah .popisek{
+        color:whitesmoke;
+        text-align: right;
+        position: relative;
+        padding:10px;
+        top: -40px;
+    }
+    .popisek a {
+        color:whitesmoke;
+    }
+    .galerie{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .foto{
+        width:50%;
+        position: relative;
+        overflow: hidden;
+    }
+    .foto img {
+        display: block;
+    }
+    .foto a{
+        color: white;
+    }
+    .foto .popisek {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: whitesmoke;
+        padding: 5px 0;
+        width: 100%;
+        position: absolute;
+    }
+    .foto:hover .popisek{
+        transform: translate(0, -100%);
+        transition: transform 1s ease 0s;
+    }
+    .foto:hover img {
+        transform: scale(1.2);
+        transition: all 1s ease 0s;
+    }    
+}
+@media (min-width: 1000px) {
+    .obsah, .galerie {
+        width: 960px;
+        margin:auto;
+        background-color: white;
+    }
+    .hlavicka{
+        height: 300px;
+    }
+    .hlavicka p {
+        width: 800px;
+        margin: auto;
+    }
+    .menu{
+        display:block;
+        float: left;
+        text-align: left;
+        margin-left: 6rem;
+        padding-top: 2rem;
+        margin-top: -3rem;
+        background-color: white;
+        position: relative;
+        left: 200px;
 
-/* MENU */
-
-
-
-
-/* OBSAH */
-
-
-
-
-/* FOTOGALERIE */
-
-
-
-
-/* PATICKA */
+    }
+    .foto{
+        width:33.33%;
+    }
+    .uvod{
+        display:flex;
+        flex-direction: column;
+        padding: 2rem;
+        padding-left:210px;
+        margin-top:-3rem;
+        background-color: white;
+    }
+    
+    .proc p{
+        text-align: left;
+        width: 670px;
+        padding-left: 2rem;
+    }
+    .proc{
+        padding: 2rem 0;
+        padding-top:0;
+    }
+    h2::before{
+            content: "";
+            display: inline-block;
+            width: 2rem;
+    }
+    h2{
+        margin:0;
+        padding-bottom: 1rem;
+    }
+    .popisek{
+        margin: 0;
+    }
+    .videt{
+        margin-left:10rem;
+        padding: 2rem;
+        padding-top:0;
+    }
+    
+    .paticka{
+        background-image: unset;
+        width: 960px;
+        text-align: left;
+        margin:auto;
+    }
+}
